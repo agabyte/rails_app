@@ -1,0 +1,57 @@
+Started GET "/" for 127.0.0.1 at 2017-08-03 06:42:28 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.3.0/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 111ms (Views: 6.6ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (95.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (74.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDrinks (20170803104329)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "temperature" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170803104329"]]
+  [1m[35m (82.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-03 10:47:25.943381"], ["updated_at", "2017-08-03 10:47:25.943381"]]
+  [1m[35m (62.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/drinks" for 127.0.0.1 at 2017-08-03 06:47:41 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DrinksController#index as HTML
+  Rendering drinks/index.html.erb within layouts/application
+  [1m[36mDrink Load (0.1ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
+  Rendered drinks/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1031ms (Views: 1023.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/drinks/new" for 127.0.0.1 at 2017-08-03 06:47:46 -0400
+Processing by DrinksController#new as HTML
+  Rendering drinks/new.html.erb within layouts/application
+  Rendered drinks/_form.html.erb (8.0ms)
+  Rendered drinks/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/drinks" for 127.0.0.1 at 2017-08-03 06:47:56 -0400
+Processing by DrinksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l5n764r8+LAcdxsrAmsBAYphiQs2lyX7quy2sQIfiGei+OhYpYlHIXfkSx4AqYDIdMOx6AwttcJw8gQtiinXmg==", "drink"=>{"name"=>"aint no tapping", "temperature"=>"24"}, "commit"=>"Create Drink"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "drinks" ("name", "temperature", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "aint no tapping"], ["temperature", 24], ["created_at", "2017-08-03 10:47:56.304356"], ["updated_at", "2017-08-03 10:47:56.304356"]]
+  [1m[35m (124.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/drinks/1
+Completed 302 Found in 128ms (ActiveRecord: 124.9ms)
+
+
+Started GET "/drinks/1" for 127.0.0.1 at 2017-08-03 06:47:56 -0400
+Processing by DrinksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDrink Load (0.3ms)[0m  [1m[34mSELECT  "drinks".* FROM "drinks" WHERE "drinks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drinks/show.html.erb within layouts/application
+  Rendered drinks/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 14ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
