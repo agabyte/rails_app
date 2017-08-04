@@ -14,8 +14,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor'
+  gem 'pg'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
