@@ -16,9 +16,9 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+#  gem 'pg'
 end
-
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
